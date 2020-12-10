@@ -10,6 +10,9 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * メッセージコントローラー
+ */
 @Slf4j
 @LineMessageHandler
 public class MessageController {
