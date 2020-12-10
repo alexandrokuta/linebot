@@ -20,8 +20,7 @@ public class MessageController {
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
         System.out.println("event: " + event);
-        String returnMessage = event.getMessage().getText() + "やで";
-        return new TextMessage(event.getMessage().getText());
+        return new TextMessage(event.getMessage().getText() + "やで");
     }
 }
 
