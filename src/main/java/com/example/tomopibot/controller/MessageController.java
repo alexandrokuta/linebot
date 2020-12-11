@@ -17,10 +17,30 @@ import lombok.extern.slf4j.Slf4j;
 @LineMessageHandler
 public class MessageController {
 
+    private boolean isNum;
+
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
-        System.out.println("event: " + event);
-        return new TextMessage(event.getMessage().getText() + "やで");
+        String acceptedMessage =  event.getMessage().getText();
+        isDigit(acceptedMessage);
+
+        if (isNum){
+            return new TextMessage("これは数字やな");
+        }else {
+            return new TextMessage(event.getMessage().getText() + "やで");
+
+        }
+
+    }
+
+    private void isDigit(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isDigit(text.charAt(i))) {
+                this.isNum = true;
+            } else {
+                this.isNum = false;
+            }
+        }
     }
 }
 
