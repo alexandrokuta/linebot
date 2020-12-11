@@ -39,7 +39,7 @@ public class MessageController {
 
         if (isNum){
             return new TextMessage("これは数字やな");
-        }else if (acceptedMessage == "くうた"){
+        }else if (acceptedMessage.equals("くうた")){
             pushConfirmController.pushConfirm();
             return new TextMessage("くうたでした");
         }
