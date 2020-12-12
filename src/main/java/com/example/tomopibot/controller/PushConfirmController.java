@@ -30,12 +30,7 @@ public class PushConfirmController {
     }
 
     public void pushConfirm() throws ExecutionException, InterruptedException {
-        try{
             TemplateMessage message = new TemplateMessage("僕はくうただよ", new ConfirmTemplate("智宏くんだね",new MessageAction("yes", "yes"),new MessageAction("no","no")));
-            BotApiResponse response = lineMessagingClient.pushMessage(new PushMessage(t_user_id,message)).get();
-        }catch (InterruptedException | ExecutionException e){
-            throw new RuntimeException(e);
+            lineMessagingClient.pushMessage(new PushMessage(t_user_id,message));
         }
-    }
-
 }
